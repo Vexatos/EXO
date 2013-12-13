@@ -1,5 +1,7 @@
 package com.exo.api.techtree;
 
+import net.minecraft.nbt.NBTTagCompound;
+
 import com.exo.api.lib.vector.Vector2;
 
 public class TechTreeNode{
@@ -20,6 +22,22 @@ public class TechTreeNode{
 	
 	public boolean isUnlocked(){
 		return this.unlocked;
+	}
+	
+	public static TechTreeNode loadFromNBT(NBTTagCompound comp){
+		TechTreeNode node = null;
+		
+		if(comp.hasKey("name")){
+			TechTreeNode child = null;
+			if(comp.hasKey("child")){
+				child = TechTreeNode.loadFromNBT(comp.getCompoundTag("child"));
+			}
+			
+			node = new TechTreeNode(comp.getString("name"), new Vector2(comp.getInteger("x"), comp.getInteger("y")), child);
+			node.unlocked = comp.getBoolean("unlocked");
+		}
+		
+		return node;
 	}
 	
 	public TechTreeNode getNext(){

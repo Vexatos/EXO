@@ -8,8 +8,9 @@ public final class DefaultTechTree extends TechTree{
 	public final TechTreeNode ROOT = new TechTreeNode("Test", new Vector2(0, 0), null).register(this);
 	public final TechTreeNode CHILD_1 = new TechTreeNode("Child 1", new Vector2(0, 10), null).register(this);
 	public final TechTreeNode CHILD_2 = new TechTreeNode("Child 2", new Vector2(0, 20), null).register(this);
+	public final TechTreeNode CHILD_3 = new TechTreeNode("Child 3", new Vector2(10, 20), CHILD_2).register(this);
 	
 	public DefaultTechTree(){
-		super("Default");
+		super("Default", null);
 	}
 }

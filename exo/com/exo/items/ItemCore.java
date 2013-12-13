@@ -41,7 +41,7 @@ public final class ItemCore extends Item{
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player){
-		player.openGui(Exoskeleton.INSTANCE, 0, world, player.chunkCoordX, player.chunkCoordY, player.chunkCoordZ);
+		player.openGui(Exoskeleton.INSTANCE, 1, world, player.chunkCoordX, player.chunkCoordY, player.chunkCoordZ);
 		return super.onItemRightClick(stack, world, player);
 	}
 	

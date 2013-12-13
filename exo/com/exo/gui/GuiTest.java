@@ -64,6 +64,7 @@ public class GuiTest extends GuiScreen{
 		GL11.glEnable(GL11.GL_COLOR_MATERIAL);
 		int x;
 		int y;
+		int meta = 0;
 		
 		for(TechTreeNode node : this.tree.getNodes()){
 			x = node.getPosition().getX();
@@ -73,7 +74,13 @@ public class GuiTest extends GuiScreen{
 			
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glEnable(GL11.GL_CULL_FACE);
-			render.renderItemIntoGUI(this.fontRenderer, this.mc.getTextureManager(), new ItemStack(EXOItems.ITEM_UPGRADE_LINK, 1, 1), x + 3, y + 3);
+			
+			if(node.isUnlocked()){
+				meta = 1;
+			}
+			
+			render.renderItemIntoGUI(this.fontRenderer, this.mc.getTextureManager(), new ItemStack(EXOItems.ITEM_UPGRADE_LINK, 1, meta), x, y);
+			
 			GL11.glDisable(GL11.GL_LIGHTING);
 		}
 		
