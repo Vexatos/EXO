@@ -1,5 +1,8 @@
 package com.exo.items;
 
+import java.util.List;
+
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -41,7 +44,8 @@ public abstract class ItemEXOArmourPiece extends ItemArmor implements EXOMateria
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool){
-		
+		if(player.isSneaking() && ItemEXOArmourPiece.getCurrentCore(stack) != null){
+			list.add(String.format("Current Core: " + ((ItemCore) ItemEXOArmourPiece.getCurrentCore(stack).getItem()).getCoreName(stack)));
+		}
 	}
-	
 }
