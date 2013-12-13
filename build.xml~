@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="EXO" default="compile">
+  <property file="build.properties"/>
+  
+  <target name="setup">
+    <echo>Setting Up</echo>
+    <mkdir dir="${build.output.dir}"/>
+    <echo>Done Setting Up</echo>
+  </target>
+  
+  <target name="compile">
+    <echo>Compiling</echo>
+    <exec executable="/bin/bash">
+      <arg value="${build.mcp.dir}/recompile.sh"/>
+    </exec>
+    <echo>Done Compiling</echo>
+  </target>
+  
+  <target name="reobf" depends="compile">
+    <echo>Reobfuscating</echo>
+    <exec executable="/bin/bash">
+      <arg value="${build.mcp.dir}/reobfuscate.sh"/>
+    </exec>
+    <echo>Done Reobfuscating</echo>
+  </target>
+  
+  <target name="dropbox" depends="package">
+    <echo>Dropboxing</echo>
+    <copy file="${build.output.dir}/${ant.project.name}-${build.version}.jar" tofile="${dropbox.dr}"/>
+    <echo>Done Dropboxing</echo>
+  </target>
+  
+  <target name="package" depends="reobfuscate">
+    <echo>Packaging</echo>
+    <jar destfile="${build.output.dir}/${ant.project.name}-${build.version}.jar">
+      <fileset dir="${build.input.dir}"/>
+      <manifest>
+	<attribute name="Built-By" value="Asyncronous (ANT Auto Build)"/>
+	<attribute name="Implementation-Vendor" value="CyanideX"/>
+	<attribute name="Implementation-Title" value="${ant.project.name}"/>
+	<attribute name="Implementation-Version" value="${build.version}"/>
+      </manifest>
+    </jar>
+    <echo>Done Packaging</echo>
+  </target>
+</project>
