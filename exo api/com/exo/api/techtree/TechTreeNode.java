@@ -17,6 +17,18 @@ public class TechTreeNode{
 		return this.next;
 	}
 	
+	public String getName(){
+		return this.name;
+	}
+	
+	public int getX(){
+		return this.x;
+	}
+	
+	public int getY(){
+		return this.y;
+	}
+	
 	public TechTreeNode register(TechTree tree){
 		tree.addNode(this);
 		return this;

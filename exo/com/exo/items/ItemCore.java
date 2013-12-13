@@ -12,15 +12,18 @@ import net.minecraft.util.ChatMessageComponent;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
+import com.exo.Exoskeleton;
 import com.exo.api.techtree.TechTree;
 import com.exo.core.TabEXO;
 import com.exo.core.techtree.DefaultTechTree;
 import com.google.common.collect.ImmutableMap;
 
+import cpw.mods.fml.client.FMLClientHandler;
+
 public final class ItemCore extends Item{
-	private final Map<Integer, String> NAME_MAP = new ImmutableMap.Builder<Integer, String>()
-			.put(0, "Dull")
-			.put(1, "Default").build();
+	public static final String[] CORE_NAMES = new String[]{
+		"Dull", "Charged"
+	};
 	
 	private final Map<Integer, TechTree> TREE_MAP = new ImmutableMap.Builder<Integer, TechTree>()
 			.put(0, new DefaultTechTree())
@@ -38,8 +41,7 @@ public final class ItemCore extends Item{
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player){
-		ItemEXOArmourPiece.setCurrentCore(player.getCurrentArmor(0), new ItemStack(this, 1, 1));
-		player.sendChatToPlayer(ChatMessageComponent.createFromText("Set Current Core"));
+		player.openGui(Exoskeleton.INSTANCE, 0, world, player.chunkCoordX, player.chunkCoordY, player.chunkCoordZ);
 		return super.onItemRightClick(stack, world, player);
 	}
 	
@@ -53,17 +55,17 @@ public final class ItemCore extends Item{
 	}
 	
 	public String getCoreName(ItemStack stack){
-		return this.NAME_MAP.get(stack.getItemDamage());
+		return ItemCore.CORE_NAMES[stack.getItemDamage()];
 	}
 	
 	@Override
 	public String getUnlocalizedName(ItemStack stack){
-		return "itemCore" + this.NAME_MAP.get(stack.getItemDamage());
+		return "itemCore" + ItemCore.CORE_NAMES[stack.getItemDamage()];
 	}
 	
 	@Override
 	public void getSubItems(int id, CreativeTabs tab, List list){
-		for(int i = 0; i < this.NAME_MAP.size(); i++){
+		for(int i = 0; i < ItemCore.CORE_NAMES.length; i++){
 			list.add(new ItemStack(id, 1, i));
 		}
 	}
