@@ -51,7 +51,8 @@ public final class IIRAssembler implements IItemRenderer{
 		FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("exo", "/textures/blocks/machine/assembler.png"));
 		GL11.glPushMatrix();
 		GL11.glEnable(GL11.GL_LIGHTING);
-		GL11.glTranslatef(x, y, z);
+		GL11.glScalef(0.75F, 0.75F, 0.75F);
+		GL11.glTranslatef(x, y + 0.65F, z);
 		GL11.glRotatef(180, 1, 0, 0);
 		this.model.render();
 		GL11.glDisable(GL11.GL_LIGHTING);

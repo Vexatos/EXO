@@ -21,7 +21,8 @@ public final class TESRAssembler extends TileEntitySpecialRenderer{
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float scale){
 		GL11.glPushMatrix();
 		GL11.glEnable(GL11.GL_LIGHTING);
-		GL11.glTranslated(x + 0.5, y + 0.3, z + 0.5);
+		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
+		GL11.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
 		FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("exo", "textures/blocks/machine/assembler.png"));
 		this.model.render();
 		GL11.glDisable(GL11.GL_LIGHTING);

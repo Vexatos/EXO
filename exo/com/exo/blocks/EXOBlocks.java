@@ -1,11 +1,14 @@
 package com.exo.blocks;
 
+import net.minecraft.block.Block;
+import net.minecraftforge.client.MinecraftForgeClient;
+
 import com.exo.core.data.EXOSessionData;
 import com.exo.core.helper.EXOLocalizationHelper;
+import com.exo.render.iir.IIRAssembler;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.block.Block;
 
 public enum EXOBlocks{
 	INSTANCE;
@@ -18,5 +21,9 @@ public enum EXOBlocks{
 	
 	public void registerBlocks(){
 		GameRegistry.registerBlock(BLOCK_ASSEMBLER, "exo:" + BLOCK_ASSEMBLER.getUnlocalizedName());
+	}
+	
+	public void registerItemRenders(){
+		MinecraftForgeClient.registerItemRenderer(BLOCK_ASSEMBLER.blockID, new IIRAssembler());
 	}
 }
