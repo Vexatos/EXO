@@ -42,21 +42,18 @@ public final class GuiUpgrader extends GuiScreen{
 	}
 	
 	private void drawTitle(){
-		this.fontRenderer.drawString("Tech Tree", 100, 100, 0x000000);
+		this.fontRenderer.drawString("Tech Tree", 100, 100, 0xFF0000);
 	}
 	
 	public void drawScreen(int l, int k, float f){
 		this.drawDefaultBackground();
 		this.genBackground(l, k, f);
+		GL11.glDisable(GL11.GL_LIGHTING);
+		GL11.glDisable(GL11.GL_DEPTH_TEST);
 		this.drawTitle();
 	}
 	
 	private void genBackground(int l, int k, float f){
-		GL11.glPopMatrix();
-		GL11.glTranslatef(0.0F, 0.0F, -200.0F);
-		
-		GL11.glEnable(GL11.GL_LIGHTING);
-		
 		int x;
 		int y;
 		int parentX;
@@ -70,12 +67,9 @@ public final class GuiUpgrader extends GuiScreen{
 			parentX = node.getNext().getX();
 			parentY = node.getNext().getY();
 			
-			this.drawHorizontalLine(x, parentX, y, 0x000000);
-			this.drawVerticalLine(parentX, y, parentY, 0x000000);
+			this.mc.renderEngine.bindTexture(new ResourceLocation("exo:textures/node.png"));
+			this.drawTexturedModalRect(x, y, 0, 0, 100, 100);
 		}
-		
-		GL11.glDisable(GL11.GL_LIGHTING);
-		GL11.glPushMatrix();
 	}
 	
 	@Override
