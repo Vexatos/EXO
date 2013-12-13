@@ -29,6 +29,13 @@ public class Exoskeleton{
 	private void preInit(FMLPreInitializationEvent event){
 		LOGGER.setParent(FMLLog.getLogger());
 		LOGGER.info("Pre-Initialization");
+		
+		LOGGER.info("Proxy Init(s)");
+		PROXY.init();
+		PROXY.initRenders();
+		PROXY.initTiles();
+		LOGGER.info("Done Proxy Init(s)");
+		
 		LOGGER.info("Done Pre-Initialization");
 	}
 	

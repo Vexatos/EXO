@@ -1,6 +1,7 @@
 package com.exo.items;
 
 import com.exo.core.EXOLocalizationHelper;
+import com.exo.core.EXOSessionData;
 
 import net.minecraft.item.Item;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -9,8 +10,8 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public enum EXOItems{
 	INSTANCE;
 	
-	public static final Item ITEM_CORE_DEFAULT_FULL = new ItemCoreDefault(5000);
-	public static final Item ITEM_CORE_DEFAULT_EMPTY = new ItemCore(5001, ITEM_CORE_DEFAULT_FULL);
+	public static final Item ITEM_CORE_DEFAULT_FULL = new ItemCoreDefault(EXOSessionData.ITEM_CORE_DEFAULT_FULL_ID);
+	public static final Item ITEM_CORE_DEFAULT_EMPTY = new ItemCore(EXOSessionData.ITEM_CORE_DEFAULT_EMPTY_ID, ITEM_CORE_DEFAULT_FULL);
 	
 	public void registerItems(){
 		GameRegistry.registerItem(ITEM_CORE_DEFAULT_FULL, "exo:" + ITEM_CORE_DEFAULT_FULL.getUnlocalizedName());
