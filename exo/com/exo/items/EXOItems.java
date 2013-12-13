@@ -11,8 +11,8 @@ public enum EXOItems{
 	public static final Item ITEM_CORE_DEFAULT_EMPTY = new ItemCore(5001, ITEM_CORE_DEFAULT_FULL);
 	
 	public void registerItems(){
-		GameRegistry.registerItem(ITEM_CORE_DEFAULT_FULL, "exo:" + ITEM_CORE_DEFAULT_FULL);
-		GameRegistry.registerItem(ITEM_CORE_DEFAULT_EMPTY, "exo:" + ITEM_CORE_DEFAULT_EMPTY);
+		GameRegistry.registerItem(ITEM_CORE_DEFAULT_FULL, "exo:" + ITEM_CORE_DEFAULT_FULL.getUnlocalizedName());
+		GameRegistry.registerItem(ITEM_CORE_DEFAULT_EMPTY, "exo:" + ITEM_CORE_DEFAULT_EMPTY.getUnlocalizedName());
 	}
 	
 	public void addItemNames(){

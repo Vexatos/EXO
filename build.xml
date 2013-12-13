@@ -25,7 +25,7 @@
     <echo>${ant.project.name}</echo>
   </target>
   
-  <target name="reobf" depends="compile">
+  <target name="reobf">
     <echo>Reobfuscating</echo>
     <exec executable="/bin/bash">
       <arg value="${build.mcp.dir}/reobfuscate.sh"/>
@@ -33,13 +33,13 @@
     <echo>Done Reobfuscating</echo>
   </target>
   
-  <target name="dropbox" depends="package">
+  <target name="dropbox">
     <echo>Dropboxing</echo>
-    <copy file="${build.output.dir}/${ant.project.name}-${build.version}.jar" tofile="${dropbox.dr}"/>
+    <copy file="${build.output.dir}/${ant.project.name}-${build.version}.jar" tofile="${dropbox.dir}/${ant.project.name}-${build.version}.jar"/>
     <echo>Done Dropboxing</echo>
   </target>
   
-  <target name="package" depends="reobf">
+  <target name="package">
     <echo>Packaging</echo>
     <jar destfile="${build.output.dir}/${ant.project.name}-${build.version}.jar">
       <fileset dir="${build.input.dir}"/>
