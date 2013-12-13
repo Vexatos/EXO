@@ -1,5 +1,6 @@
 package com.exo.items;
 
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -18,8 +19,11 @@ public final class ItemCoreDefault extends ItemCore{
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player){
-		
-		
-		return super.onItemRightClick(stack, world, player);
+		return stack;
+	}
+	
+	@Override
+	public void registerIcons(IconRegister register){
+		this.itemIcon = register.registerIcon("edx:core/coreDefaultFull");
 	}
 }

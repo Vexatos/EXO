@@ -19,6 +19,10 @@ public class EXOConfig{
 		EXOSessionData.BLOCK_ASSEMBLER_ID = this.config.getBlock("Assembler", 3000).getInt();
 		EXOSessionData.ITEM_CORE_DEFAULT_FULL_ID = this.config.getItem("Default Core Full", 5000).getInt();
 		EXOSessionData.ITEM_CORE_DEFAULT_EMPTY_ID = this.config.getItem("Default Core Empty", 5001).getInt();
+		EXOSessionData.ITEM_SUIT_UNCHARGED_HELM_ID = this.config.getItem("Exosuit Helmet", 5002).getInt();
+		EXOSessionData.ITEM_SUIT_UNCHARGED_CHEST_ID = this.config.getItem("Exosuit Chest", 5003).getInt();
+		EXOSessionData.ITEM_SUIT_UNCHARGED_LEGS_ID = this.config.getItem("Exosuit Legs", 5004).getInt();
+		EXOSessionData.ITEM_SUIT_UNCHARGED_BOOTS_ID = this.config.getItem("Exosuit Boots", 5005).getInt();
 		
 		this.config.save();
 	}
