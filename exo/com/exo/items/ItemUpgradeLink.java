@@ -13,14 +13,14 @@ import net.minecraft.world.World;
 
 import com.exo.core.TabEXO;
 
+import cpw.mods.fml.client.FMLClientHandler;
+
 public final class ItemUpgradeLink extends Item{
 	private Icon[] textures;
 	
 	public static final String[] UPGRADE_LINK_NAMES = new String[]{
 		"Dead", "Uncharged"
 	};
-	
-	private boolean charged = false;
 	
 	public ItemUpgradeLink(int id){
 		super(id);
@@ -29,29 +29,30 @@ public final class ItemUpgradeLink extends Item{
 		this.setCreativeTab(TabEXO.tabEXO);
 	}
 	
-	public boolean isCharged(){
-		return this.charged;
-	}
-	
-	public Item setCharged(){
-		this.charged = true;
-		return this;
-	}
-	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player){
-		if(this.isCharged()){
-			return super.onItemRightClick(stack, world, player);
-		} else{
-			if(player.experienceLevel >= 10){
-				player.experienceLevel -= 10;
-				player.inventory.mainInventory[player.inventory.currentItem] = new ItemStack(this.setCharged(), 1, 1);
+		if(stack.getItem() instanceof ItemUpgradeLink){
+			if(stack.getItemDamage() == 0){
+				if(world.isRemote){
+					player.inventory.mainInventory[player.inventory.currentItem] = new ItemStack(stack.getItem(), 1, 1);
+					return super.onItemRightClick(stack, world, player);
+				}
+				
+				if(player.experienceLevel >= 10){
+					player.experienceLevel -= 10;
+					player.inventory.mainInventory[player.inventory.currentItem] = new ItemStack(stack.getItem(), 1, 1);
+					return super.onItemRightClick(stack, world, player);
+				} else{
+					player.sendChatToPlayer(ChatMessageComponent.createFromText("Not enough experience, you need 10 levels"));
+					return super.onItemRightClick(stack, world, player);
+				}
 			} else{
-				player.sendChatToPlayer(ChatMessageComponent.createFromText("Not enough experience, you need 10 levels"));
+				player.sendChatToPlayer(ChatMessageComponent.createFromText("Already charged"));
+				return super.onItemRightClick(stack, world, player);
 			}
+		} else{
+			return super.onItemRightClick(stack, world, player);
 		}
-		
-		return super.onItemRightClick(stack, world, player);
 	}
 	
 	@Override
