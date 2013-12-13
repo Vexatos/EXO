@@ -53,7 +53,7 @@ public abstract class ItemEXOArmourPiece extends ItemArmor implements EXOMateria
 		}
 	}
 	
-	private String getCurrentCoreStatus(ItemStack stack){
+	public String getCurrentCoreStatus(ItemStack stack){
 		return ItemEXOArmourPiece.getCurrentCore(stack) != null ? ((ItemCore) ItemEXOArmourPiece.getCurrentCore(stack).getItem()).getCoreName(stack) : "Null";
 	}
 }

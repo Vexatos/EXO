@@ -2,10 +2,8 @@ package com.exo;
 
 import java.util.logging.Logger;
 
-import net.minecraft.util.WeightedRandomChestContent;
-import net.minecraftforge.common.ChestGenHooks;
-
 import com.exo.blocks.EXOBlocks;
+import com.exo.client.ClientTickHandler;
 import com.exo.gui.GuiHandler;
 import com.exo.items.EXOItems;
 import com.exo.server.CommonProxy;
@@ -19,6 +17,8 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid="EXO", name="Exoskeleton", version="0.0.0")
 @NetworkMod(channels={"EXO"}, clientSideRequired=true, serverSideRequired=false)
@@ -60,6 +60,10 @@ public class Exoskeleton{
 		LOGGER.info("Registering GUI Handler");
 		NetworkRegistry.instance().registerGuiHandler(Exoskeleton.INSTANCE, new GuiHandler());
 		LOGGER.info("Done Registering GUI Handler");
+		
+		LOGGER.info("Registering Tick Handler");
+		TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
+		LOGGER.info("Done Registering Tick Handler");
 		
 		LOGGER.info("Done Initialization");
 	}

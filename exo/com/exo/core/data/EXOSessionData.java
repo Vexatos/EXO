@@ -7,6 +7,7 @@ public final class EXOSessionData{
 	 * General Settings
 	 */
 	public static String CURRENT_LANGUAGE = "en_US";
+	public static boolean RENDER_OVERLAY = true;
 	
 	/*
 	 * Item IDs

@@ -15,6 +15,7 @@ public class EXOConfig{
 		this.config.load();
 		
 		EXOSessionData.CURRENT_LANGUAGE = this.config.get("settings", "language", "en_US").getString();
+		EXOSessionData.RENDER_OVERLAY = this.config.get("settings", "renderOverlay", true).getBoolean(true);
 		
 		EXOSessionData.BLOCK_ASSEMBLER_ID = this.config.getBlock("Assembler", 3000).getInt();
 		EXOSessionData.ITEM_CORE_ID = this.config.getBlock("Core", 5000).getInt();
