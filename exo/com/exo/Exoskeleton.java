@@ -2,6 +2,7 @@ package com.exo;
 
 import java.util.logging.Logger;
 
+import com.exo.blocks.EXOBlocks;
 import com.exo.gui.GuiHandler;
 import com.exo.items.EXOItems;
 import com.exo.server.CommonProxy;
@@ -49,6 +50,10 @@ public class Exoskeleton{
 		EXOItems.INSTANCE.registerItems();
 		LOGGER.info("Done Registering Items");
 		
+		LOGGER.info("Registering Blocks");
+		EXOBlocks.INSTANCE.registerBlocks();
+		LOGGER.info("Done Registering Blocks");
+		
 		LOGGER.info("Registering GUI Handler");
 		NetworkRegistry.instance().registerGuiHandler(Exoskeleton.INSTANCE, new GuiHandler());
 		LOGGER.info("Done Registering GUI Handler");
@@ -63,6 +68,10 @@ public class Exoskeleton{
 		LOGGER.info("Adding Item Names");
 		EXOItems.INSTANCE.addItemNames();
 		LOGGER.info("Done Adding Item Names");
+		
+		LOGGER.info("Adding Block Names");
+		EXOBlocks.INSTANCE.addBlockNames();
+		LOGGER.info("Done Adding Block Names");
 		
 		LOGGER.info("Done Post-Initialization");
 	}

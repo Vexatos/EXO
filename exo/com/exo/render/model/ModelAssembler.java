@@ -118,7 +118,6 @@ public class ModelAssembler extends ModelBase{
       hinge2.setTextureSize(128, 64);
       hinge2.mirror = true;
       setRotation(hinge2, 0F, 0F, 0F);
-      lidRight.mirror = true;
       lidRight = new ModelRenderer(this, 64, 0);
       lidRight.addBox(0F, 1F, -12F, 1, 10, 11);
       lidRight.setRotationPoint(6F, -4F, 6F);
@@ -156,7 +155,6 @@ public class ModelAssembler extends ModelBase{
       keypad.setTextureSize(128, 64);
       keypad.mirror = true;
       setRotation(keypad, -0.6981317F, 0F, 0F);
-      lidFrontR.mirror = true;
       lidFrontR = new ModelRenderer(this, 56, 15);
       lidFrontR.addBox(11F, 2F, -13F, 3, 7, 1);
       lidFrontR.setRotationPoint(-7F, -4F, 6F);

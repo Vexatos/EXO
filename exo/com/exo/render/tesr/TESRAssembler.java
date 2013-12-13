@@ -19,14 +19,10 @@ public final class TESRAssembler extends TileEntitySpecialRenderer{
 	
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float scale){
-		GL11.glPopMatrix();
-		GL11.glEnable(GL11.GL_LIGHTING);
-		GL11.glTranslated(x, y, z);
-		GL11.glRotated(180.0, 0.0, 1.0, 0.0);
-		GL11.glTranslated(0.5, -1.5, -0.5);
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("exo", "textures/blocks/machine/assembler"));
-		this.model.render();
-		GL11.glDisable(GL11.GL_LIGHTING);
 		GL11.glPushMatrix();
+		GL11.glTranslated(x + 0.5, y + 0.3, z + 0.5);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("exo", "textures/blocks/machine/assembler.png"));
+		this.model.render();
+		GL11.glPopMatrix();
 	}
 }
