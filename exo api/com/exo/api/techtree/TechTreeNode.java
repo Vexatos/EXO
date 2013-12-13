@@ -1,16 +1,25 @@
 package com.exo.api.techtree;
 
+import com.exo.api.lib.vector.Vector2;
+
 public class TechTreeNode{
 	private final String name;
-	private final int x;
-	private final int y;
+	private final Vector2 vec;
 	private final TechTreeNode next;
+	private boolean unlocked = false;
 	
-	public TechTreeNode(String name, int x, int y, TechTreeNode node){
+	public TechTreeNode(String name, Vector2 vec, TechTreeNode node){
 		this.name = name;
-		this.x = x;
-		this.y = y;
+		this.vec = vec;
 		this.next = node;
+	}
+	
+	public void unlock(){
+		this.unlocked = true;
+	}
+	
+	public boolean isUnlocked(){
+		return this.unlocked;
 	}
 	
 	public TechTreeNode getNext(){
@@ -21,12 +30,8 @@ public class TechTreeNode{
 		return this.name;
 	}
 	
-	public int getX(){
-		return this.x;
-	}
-	
-	public int getY(){
-		return this.y;
+	public Vector2 getPosition(){
+		return this.vec;
 	}
 	
 	public TechTreeNode register(TechTree tree){
