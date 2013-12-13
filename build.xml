@@ -42,7 +42,8 @@
   <target name="package">
     <echo>Packaging</echo>
     <jar destfile="${build.output.dir}/${ant.project.name}-${build.version}.jar">
-      <fileset dir="${build.input.dir}"/>
+      <fileset dir="${build.input.dir}/minecraft"/>
+      <fileset dir="${build.mcp.dir}/src/minecraft/exo resources"/>
       <manifest>
 	<attribute name="Built-By" value="Asyncronous (ANT Auto Build)"/>
 	<attribute name="Implementation-Vendor" value="CyanideX"/>
