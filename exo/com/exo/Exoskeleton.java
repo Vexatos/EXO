@@ -2,6 +2,7 @@ package com.exo;
 
 import java.util.logging.Logger;
 
+import com.exo.items.EXOItems;
 import com.exo.server.CommonProxy;
 
 import cpw.mods.fml.common.FMLLog;
@@ -27,20 +28,35 @@ public class Exoskeleton{
 	@Mod.EventHandler()
 	private void preInit(FMLPreInitializationEvent event){
 		LOGGER.setParent(FMLLog.getLogger());
+		LOGGER.info("Pre-Initialization");
+		LOGGER.info("Done Pre-Initialization");
 	}
 	
 	@Mod.EventHandler()
 	private void init(FMLInitializationEvent event){
+		LOGGER.info("Initialization");
 		
+		LOGGER.info("Registering Items");
+		EXOItems.INSTANCE.registerItems();
+		LOGGER.info("Done Registering Items");
+		
+		LOGGER.info("Done Initialization");
 	}
 	
 	@Mod.EventHandler()
 	private void postInit(FMLPostInitializationEvent event){
+		LOGGER.info("Post-Initialization");
 		
+		LOGGER.info("Adding Item Names");
+		EXOItems.INSTANCE.addItemNames();
+		LOGGER.info("Done Adding Item Names");
+		
+		LOGGER.info("Done Post-Initialization");
 	}
 	
 	@Mod.EventHandler()
 	private void serverStarting(FMLServerStartingEvent event){
-		
+		LOGGER.info("Server-Starting");
+		LOGGER.info("Done Server-Starting");
 	}
 }

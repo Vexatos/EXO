@@ -21,11 +21,11 @@ public class ItemCore extends Item{
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player){
-		if(player.experienceLevel == 10){
-			player.experienceLevel = 0;
+		if(player.experienceLevel <= 10){
+			player.experienceLevel -= 10;
 			player.inventory.changeCurrentItem(this.fullCore.itemID);
 		} else{
-			player.sendChatToPlayer(ChatMessageComponent.createFromText("Not enough XP"));
+			player.sendChatToPlayer(ChatMessageComponent.createFromText("Not enough XP: " + player.experienceLevel));
 		}
 		
 		return super.onItemRightClick(stack, world, player);
