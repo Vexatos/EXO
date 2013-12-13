@@ -1,7 +1,7 @@
 package com.exo.items;
 
-import com.exo.core.EXOLocalizationHelper;
-import com.exo.core.EXOSessionData;
+import com.exo.core.data.EXOSessionData;
+import com.exo.core.helper.EXOLocalizationHelper;
 
 import net.minecraft.item.Item;
 import cpw.mods.fml.common.registry.GameRegistry;

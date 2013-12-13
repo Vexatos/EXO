@@ -1,7 +1,7 @@
 package com.exo.blocks;
 
-import com.exo.core.EXOLocalizationHelper;
-import com.exo.core.EXOSessionData;
+import com.exo.core.data.EXOSessionData;
+import com.exo.core.helper.EXOLocalizationHelper;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
