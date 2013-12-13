@@ -7,4 +7,7 @@ import com.exo.items.EXOItems;
 public interface EXOMetaScope{
 	public static final ItemStack STACK_UPGRADE_LINK_DEAD = new ItemStack(EXOItems.ITEM_UPGRADE_LINK, 1, 0);
 	public static final ItemStack STACK_UPGRADE_LINK_CHARGED = new ItemStack(EXOItems.ITEM_UPGRADE_LINK, 1, 1);
+	
+	public static final ItemStack STACK_CORE_DEAD = new ItemStack(EXOItems.ITEM_CORE, 1, 0);
+	public static final ItemStack STACK_CORE_CHARGED = new ItemStack(EXOItems.ITEM_CORE, 1, 1);
 }

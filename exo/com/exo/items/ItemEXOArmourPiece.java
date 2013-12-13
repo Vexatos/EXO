@@ -1,63 +1,47 @@
 package com.exo.items;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-import com.exo.api.ItemCore;
 import com.exo.core.TabEXO;
 import com.exo.core.scope.EXOMaterialScope;
 
-public abstract class ItemEXOArmourPiece extends ItemArmor implements EXOMaterialScope{
-	private ItemCore currentCore;
-	
-	public ItemEXOArmourPiece(int id, int slot){
+public abstract class ItemEXOArmourPiece extends ItemArmor implements EXOMaterialScope{public ItemEXOArmourPiece(int id, int slot){
 		super(id, EXO_SUIT_MATERIAL, 0, slot);
 		this.setCreativeTab(TabEXO.tabEXO);
 		this.setUnlocalizedName("itemEXOArmourPiece");
 	}
-	
-	private ItemCore getCurrentCore(){
-		return this.currentCore;
-	}
-	
-	private void setCurrentCore(ItemCore item){
-		this.currentCore = item;
-	}
-	
-	public static Item loadItemCore(ItemStack armourPiece){
-		if(armourPiece.getItem() instanceof ItemEXOArmourPiece){
-			ItemEXOArmourPiece armour = (ItemEXOArmourPiece) armourPiece.getItem();
-			
-			if(armour.getCurrentCore() != null){
-				return armour.getCurrentCore();
-			} else{
-				if(armourPiece.stackTagCompound.hasKey("currentCore")){
-					NBTTagCompound comp = (NBTTagCompound) armourPiece.stackTagCompound.getTag("currentCore");
-					armour.setCurrentCore(((ItemCore) ItemStack.loadItemStackFromNBT(comp).getItem()));
-					return armour.getCurrentCore();
-				} else{
-					return null;
-				}
-			}
+
+	public static ItemStack getCurrentCore(ItemStack armourPiece){
+		if(armourPiece.stackTagCompound == null){
+			armourPiece.setTagCompound(new NBTTagCompound());
+		}
+		
+		NBTTagCompound comp = armourPiece.stackTagCompound;
+		
+		if(comp.hasKey("core")){
+			NBTTagCompound core = (NBTTagCompound) comp.getTag("core");
+			return ItemStack.loadItemStackFromNBT(core);
 		} else{
 			return null;
 		}
 	}
 	
-	public static void setItemCore(ItemStack armourPiece, ItemCore core){
-		if(core.isCharged()){
-			if(armourPiece.getItem() instanceof ItemEXOArmourPiece){
-				if(armourPiece.stackTagCompound == null){
-					armourPiece.setTagCompound(new NBTTagCompound());
-				}
-				
-				NBTTagCompound coreComp = new NBTTagCompound();
-				new ItemStack(core).writeToNBT(coreComp);
-				armourPiece.stackTagCompound.setTag("currentCore", coreComp);
-				((ItemEXOArmourPiece) armourPiece.getItem()).setCurrentCore(core);
-			}
+	public static void setCurrentCore(ItemStack armourPiece, ItemStack core){
+		if(armourPiece.stackTagCompound == null){
+			armourPiece.setTagCompound(new NBTTagCompound());
 		}
+		
+		NBTTagCompound comp = armourPiece.stackTagCompound;
+		NBTTagCompound tag = new NBTTagCompound();
+		core.writeToNBT(tag);
+		comp.setTag("core", tag);
 	}
+	
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool){
+		
+	}
+	
 }
