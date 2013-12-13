@@ -2,6 +2,7 @@ package com.exo;
 
 import java.util.logging.Logger;
 
+import com.exo.gui.GuiHandler;
 import com.exo.items.EXOItems;
 import com.exo.server.CommonProxy;
 
@@ -13,6 +14,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 
 @Mod(modid="EXO", name="Exoskeleton", version="0.0.0")
 @NetworkMod(channels={"EXO"}, clientSideRequired=true, serverSideRequired=false)
@@ -46,6 +48,10 @@ public class Exoskeleton{
 		LOGGER.info("Registering Items");
 		EXOItems.INSTANCE.registerItems();
 		LOGGER.info("Done Registering Items");
+		
+		LOGGER.info("Registering GUI Handler");
+		NetworkRegistry.instance().registerGuiHandler(Exoskeleton.INSTANCE, new GuiHandler());
+		LOGGER.info("Done Registering GUI Handler");
 		
 		LOGGER.info("Done Initialization");
 	}
