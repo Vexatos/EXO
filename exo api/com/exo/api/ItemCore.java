@@ -44,7 +44,7 @@ public class ItemCore extends Item{
 	
 	@Override
 	public void registerIcons(IconRegister register){
-		this.itemIcon = register.registerIcon("edx:cores/coreEmpty");
+		this.itemIcon = register.registerIcon("exo:core/coreEmpty");
 	}
 	
 	@Override

@@ -8,6 +8,7 @@ public final class ItemEXOArmourLegs extends ItemEXOArmourPiece{
 	
 	public ItemEXOArmourLegs(int id){
 		super(id, 2);
+		this.setUnlocalizedName(super.getUnlocalizedName() + "Legs");
 	}
 	
 	@Override
@@ -17,6 +18,6 @@ public final class ItemEXOArmourLegs extends ItemEXOArmourPiece{
 	
 	@Override
 	public void registerIcons(IconRegister register){
-		this.texture = register.registerIcon("edx:armour/exoLeggingsFrame");
+		this.texture = register.registerIcon("exo:armour/exoLeggingsFrame");
 	}
 }

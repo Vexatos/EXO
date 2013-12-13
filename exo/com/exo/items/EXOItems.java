@@ -30,8 +30,8 @@ public enum EXOItems{
 	}
 	
 	public void addItemNames(){
-		LanguageRegistry.addName(ITEM_CORE_DEFAULT_FULL, EXOLocalizationHelper.translate("item.core.default.full"));
-		LanguageRegistry.addName(ITEM_CORE_DEFAULT_EMPTY, EXOLocalizationHelper.translate("item.core.default.empty"));
+		LanguageRegistry.addName(ITEM_CORE_DEFAULT_FULL, EXOLocalizationHelper.translate("item.core.default.full.name"));
+		LanguageRegistry.addName(ITEM_CORE_DEFAULT_EMPTY, EXOLocalizationHelper.translate("item.core.default.empty.name"));
 		LanguageRegistry.addName(ITEM_SUIT_UNCHARGED_HELM, EXOLocalizationHelper.translate("item.exosuit.helm.name"));
 		LanguageRegistry.addName(ITEM_SUIT_UNCHARGED_CHEST, EXOLocalizationHelper.translate("item.exosuit.chest.name"));
 		LanguageRegistry.addName(ITEM_SUIT_UNCHARGED_LEGS, EXOLocalizationHelper.translate("item.exosuit.legs.name"));

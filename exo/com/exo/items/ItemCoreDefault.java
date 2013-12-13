@@ -24,6 +24,6 @@ public final class ItemCoreDefault extends ItemCore{
 	
 	@Override
 	public void registerIcons(IconRegister register){
-		this.itemIcon = register.registerIcon("edx:core/coreDefaultFull");
+		this.itemIcon = register.registerIcon("exo:core/coreDefaultFull");
 	}
 }
