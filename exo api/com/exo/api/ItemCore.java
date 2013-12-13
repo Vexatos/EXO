@@ -11,9 +11,17 @@ import com.exo.core.TabEXO;
 public class ItemCore extends Item{
 	private final Item fullCore;
 	private final TechTree tree;
+	private final String name;
+	private final boolean charged;
 	
-	public ItemCore(int id, Item fullCore, TechTree tree){
+	public ItemCore(int id, String name, Item fullCore, TechTree tree){
 		super(id);
+		if(fullCore == null){
+			this.charged = true;
+		} else{
+			this.charged = false;
+		}
+		this.name = name;
 		this.tree = tree;
 		this.fullCore = fullCore;
 		this.setUnlocalizedName("itemCore");
@@ -21,8 +29,16 @@ public class ItemCore extends Item{
 		this.setMaxStackSize(1);
 	}
 	
+	public boolean isCharged(){
+		return this.charged;
+	}
+	
 	public TechTree getTree(){
 		return this.tree;
+	}
+	
+	public String getCoreName(){
+		return this.name;
 	}
 	
 	@Override

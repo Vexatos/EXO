@@ -10,7 +10,7 @@ import com.exo.core.techtree.DefaultTechTree;
 
 public final class ItemCoreDefault extends ItemCore{
 	public ItemCoreDefault(int id){
-		super(id, null, new DefaultTechTree());
+		super(id, "Default", null, new DefaultTechTree());
 		this.setUnlocalizedName("itemCoreDefault");
 		this.setCreativeTab(TabEXO.tabEXO);
 		this.setMaxStackSize(1);
