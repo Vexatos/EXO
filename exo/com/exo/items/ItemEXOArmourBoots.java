@@ -15,11 +15,6 @@ public final class ItemEXOArmourBoots extends ItemEXOArmourPiece{
 	}
 	
 	@Override
-	public Icon getIconFromDamage(int damage){
-		return this.textures[0];
-	}
-	
-	@Override
 	public Icon getIcon(ItemStack stack, int pass){
 		if(ItemEXOArmourPiece.getCurrentCore(stack) != null){
 			return this.textures[1];
