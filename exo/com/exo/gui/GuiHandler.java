@@ -10,8 +10,6 @@ public final class GuiHandler implements IGuiHandler{
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		switch(ID)
 		{
-			case 0:
-				return null;
 			default:
 				return null;
 		}
@@ -21,8 +19,6 @@ public final class GuiHandler implements IGuiHandler{
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		switch(ID)
 		{
-			case 0:
-				return new GuiUpgrader();
 			default:
 				return null;
 		}

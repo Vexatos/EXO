@@ -1,5 +1,7 @@
 package com.exo.items;
 
+import com.exo.api.ItemEXOArmourPiece;
+
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
 
