@@ -10,6 +10,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import com.exo.core.TabEXO;
 import com.exo.core.scope.EXOMaterialScope;
 
+import cpw.mods.fml.client.FMLClientHandler;
+
 public abstract class ItemEXOArmourPiece extends ItemArmor implements EXOMaterialScope{public ItemEXOArmourPiece(int id, int slot){
 		super(id, EXO_SUIT_MATERIAL, 0, slot);
 		this.setCreativeTab(TabEXO.tabEXO);
@@ -44,8 +46,12 @@ public abstract class ItemEXOArmourPiece extends ItemArmor implements EXOMateria
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool){
-		if(player.isSneaking() && ItemEXOArmourPiece.getCurrentCore(stack) != null){
-			list.add(String.format("Current Core: " + ((ItemCore) ItemEXOArmourPiece.getCurrentCore(stack).getItem()).getCoreName(stack)));
+		if(FMLClientHandler.instance().getClient().gameSettings.isKeyDown(FMLClientHandler.instance().getClient().gameSettings.keyBindSneak)){
+			list.add(String.format("Current Core: %s", this.getCurrentCoreStatus(stack)));
 		}
+	}
+	
+	private String getCurrentCoreStatus(ItemStack stack){
+		return ItemEXOArmourPiece.getCurrentCore(stack) != null ? ((ItemCore) ItemEXOArmourPiece.getCurrentCore(stack).getItem()).getCoreName(stack) : "Null";
 	}
 }

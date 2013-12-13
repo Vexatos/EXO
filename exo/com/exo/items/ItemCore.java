@@ -8,6 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatMessageComponent;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
@@ -37,9 +38,8 @@ public final class ItemCore extends Item{
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player){
-		if(player.inventory.armorInventory[0] == new ItemStack(EXOItems.ITEM_SUIT_UNCHARGED_HELM)){
-			ItemEXOArmourPiece.setCurrentCore(player.inventory.armorInventory[0], new ItemStack(this, 1, 0));
-		}
+		ItemEXOArmourPiece.setCurrentCore(player.getCurrentArmor(0), new ItemStack(this, 1, 1));
+		player.sendChatToPlayer(ChatMessageComponent.createFromText("Set Current Core"));
 		return super.onItemRightClick(stack, world, player);
 	}
 	
