@@ -14,7 +14,7 @@ public class TechTreeNode{
 	}
 	
 	public TechTreeNode getNext(){
-		return this.next;
+		return this.next == null ? this : this.next;
 	}
 	
 	public String getName(){
