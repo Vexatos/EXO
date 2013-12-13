@@ -23,6 +23,7 @@ public class EXOConfig{
 		EXOSessionData.ITEM_SUIT_UNCHARGED_CHEST_ID = this.config.getItem("Exosuit Chest", 5003).getInt();
 		EXOSessionData.ITEM_SUIT_UNCHARGED_LEGS_ID = this.config.getItem("Exosuit Legs", 5004).getInt();
 		EXOSessionData.ITEM_SUIT_UNCHARGED_BOOTS_ID = this.config.getItem("Exosuit Boots", 5005).getInt();
+		EXOSessionData.ITEM_UPGRADELINK_ID = this.config.getItem("Upgrade Link", 5006).getInt();
 		
 		this.config.save();
 	}

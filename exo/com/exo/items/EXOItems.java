@@ -1,11 +1,11 @@
 package com.exo.items;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 import com.exo.api.ItemCore;
 import com.exo.core.data.EXOSessionData;
 import com.exo.core.helper.EXOLocalizationHelper;
-import com.exo.core.techtree.DefaultTechTree;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -19,6 +19,7 @@ public enum EXOItems{
 	public static final Item ITEM_SUIT_UNCHARGED_CHEST = new ItemEXOArmourChest(EXOSessionData.ITEM_SUIT_UNCHARGED_CHEST_ID);
 	public static final Item ITEM_SUIT_UNCHARGED_LEGS = new ItemEXOArmourLegs(EXOSessionData.ITEM_SUIT_UNCHARGED_LEGS_ID);
 	public static final Item ITEM_SUIT_UNCHARGED_BOOTS = new ItemEXOArmourBoots(EXOSessionData.ITEM_SUIT_UNCHARGED_BOOTS_ID);
+	public static final Item ITEM_UPGRADE_LINK = new ItemUpgradeLink(EXOSessionData.ITEM_UPGRADELINK_ID);
 	
 	public void registerItems(){
 		GameRegistry.registerItem(ITEM_CORE_DEFAULT_FULL, "exo:" + ITEM_CORE_DEFAULT_FULL.getUnlocalizedName());
@@ -27,6 +28,7 @@ public enum EXOItems{
 		GameRegistry.registerItem(ITEM_SUIT_UNCHARGED_CHEST, "exo:" + ITEM_SUIT_UNCHARGED_CHEST.getUnlocalizedName());
 		GameRegistry.registerItem(ITEM_SUIT_UNCHARGED_LEGS, "exo:" + ITEM_SUIT_UNCHARGED_LEGS.getUnlocalizedName());
 		GameRegistry.registerItem(ITEM_SUIT_UNCHARGED_BOOTS, "exo:" + ITEM_SUIT_UNCHARGED_BOOTS.getUnlocalizedName());
+		GameRegistry.registerItem(ITEM_UPGRADE_LINK, "exo:" + ITEM_UPGRADE_LINK.getUnlocalizedName());
 	}
 	
 	public void addItemNames(){
@@ -36,5 +38,7 @@ public enum EXOItems{
 		LanguageRegistry.addName(ITEM_SUIT_UNCHARGED_CHEST, EXOLocalizationHelper.translate("item.exosuit.chest.name"));
 		LanguageRegistry.addName(ITEM_SUIT_UNCHARGED_LEGS, EXOLocalizationHelper.translate("item.exosuit.legs.name"));
 		LanguageRegistry.addName(ITEM_SUIT_UNCHARGED_BOOTS, EXOLocalizationHelper.translate("item.exosuit.boots.name"));
+		LanguageRegistry.addName(new ItemStack(ITEM_UPGRADE_LINK, 0, 0), EXOLocalizationHelper.translate("item.upgradelink.dead.name"));
+		LanguageRegistry.addName(new ItemStack(ITEM_UPGRADE_LINK, 0, 1), EXOLocalizationHelper.translate("item.upgradelink.charged.name"));
 	}
 }

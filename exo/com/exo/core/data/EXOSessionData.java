@@ -18,4 +18,5 @@ public final class EXOSessionData{
 	public static int ITEM_SUIT_UNCHARGED_CHEST_ID = 5003;
 	public static int ITEM_SUIT_UNCHARGED_LEGS_ID = 5004;
 	public static int ITEM_SUIT_UNCHARGED_BOOTS_ID = 5006;
+	public static int ITEM_UPGRADELINK_ID = 5007;
 }

@@ -6,19 +6,19 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import com.exo.core.TabEXO;
-import com.exo.tile.TileAssembler;
+import com.exo.tile.TileModifier;
 
-public final class BlockAssembler extends BlockContainer{
-	public BlockAssembler(int id){
+public final class BlockModifier extends BlockContainer{
+	public BlockModifier(int id){
 		super(id, Material.iron);
-		this.setUnlocalizedName("blockAssembler");
+		this.setUnlocalizedName("blockModifier");
 		this.setCreativeTab(TabEXO.tabEXO);
 		this.setStepSound(this.soundMetalFootstep);
 	}
 	
 	@Override
 	public TileEntity createNewTileEntity(World world){
-		return new TileAssembler();
+		return new TileModifier();
 	}
 	
 	@Override
