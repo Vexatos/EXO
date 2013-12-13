@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatMessageComponent;
 import net.minecraft.world.World;
 
+import com.exo.api.techtree.TechTree;
 import com.exo.core.TabEXO;
 
 public class ItemCore extends Item{
