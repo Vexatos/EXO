@@ -48,7 +48,7 @@ public final class IIRAssembler implements IItemRenderer{
 	}
 	
 	private void renderAssembler(float x, float y, float z){
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("exo", "/textures/blocks/machine/assembler.png"));
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("exo", "textures/blocks/machine/assembler.png"));
 		GL11.glPushMatrix();
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glScalef(0.75F, 0.75F, 0.75F);

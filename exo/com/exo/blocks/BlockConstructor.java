@@ -21,6 +21,7 @@ public final class BlockConstructor extends BlockContainer{
 		this.setUnlocalizedName("blockConstructor");
 		this.setCreativeTab(TabEXO.tabEXO);
 		this.setStepSound(this.soundMetalFootstep);
+		this.setBlockBounds(1.0F, 1.0F, 1.0F, 1.0F, 1.5F, 1.0F);
 	}
 	
 	@Override
@@ -47,7 +48,7 @@ public final class BlockConstructor extends BlockContainer{
 	
 	@Override
 	public void registerIcons(IconRegister register){
-		this.texture = register.registerIcon("exo:machine/constructor.png");
+		this.texture = register.registerIcon("exo:machine/constructor");
 	}
 	
 	@Override

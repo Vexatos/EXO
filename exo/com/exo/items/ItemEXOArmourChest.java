@@ -1,12 +1,13 @@
 package com.exo.items;
 
-import com.exo.api.ItemEXOArmourPiece;
-
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 
+import com.exo.api.ItemEXOArmourPiece;
+
 public final class ItemEXOArmourChest extends ItemEXOArmourPiece{
-	private Icon texture;
+	private Icon[] textures;
 	
 	public ItemEXOArmourChest(int id){
 		super(id, 1);
@@ -14,12 +15,19 @@ public final class ItemEXOArmourChest extends ItemEXOArmourPiece{
 	}
 	
 	@Override
-	public Icon getIconFromDamage(int damage){
-		return this.texture;
+	public Icon getIcon(ItemStack stack, int pass){
+		if(ItemEXOArmourPiece.getCurrentCore(stack) != null){
+			return this.textures[1];
+		} else{
+			return this.textures[0];
+		}
 	}
 	
 	@Override
 	public void registerIcons(IconRegister register){
-		this.texture = register.registerIcon("exo:armour/exoChestplateFrame");
+		this.textures = new Icon[]{
+			register.registerIcon("exo:armour/exoChestFrame"),
+			register.registerIcon("exo:armour/exoChest")
+		};
 	}
 }

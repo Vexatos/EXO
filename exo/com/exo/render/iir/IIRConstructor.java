@@ -46,7 +46,7 @@ public final class IIRConstructor implements IItemRenderer{
 	}
 	
 	private void renderConstructor(float x, float y, float z, float scale){
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("exo", "/textures/blocks/machine/assembler.png"));
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("exo", "textures/blocks/machine/assembler.png"));
 		GL11.glPushMatrix();
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glScalef(scale, scale, scale);

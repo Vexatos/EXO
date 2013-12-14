@@ -24,6 +24,7 @@ public final class BlockAssembler extends BlockContainer{
 		this.setUnlocalizedName("blockAssembler");
 		this.setCreativeTab(TabEXO.tabEXO);
 		this.setStepSound(this.soundMetalFootstep);
+		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 2.0F, 1.0F);
 	}
 	
 	@Override
@@ -50,7 +51,7 @@ public final class BlockAssembler extends BlockContainer{
 	
 	@Override
 	public void registerIcons(IconRegister register){
-		this.texture = register.registerIcon("exo:machine/assembler.png");
+		this.texture = register.registerIcon("exo:machine/assembler");
 	}
 	
 	@Override
