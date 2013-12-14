@@ -20,7 +20,7 @@ public final class TESRConstructor extends TileEntitySpecialRenderer{
 	
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float f) {
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("exo", "textures/block/machine/constructor.png"));
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("exo", "textures/blocks/machine/constructor.png"));
 		GL11.glPushMatrix();
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
