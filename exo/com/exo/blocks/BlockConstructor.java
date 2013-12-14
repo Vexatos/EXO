@@ -21,7 +21,7 @@ public final class BlockConstructor extends BlockContainer{
 		this.setUnlocalizedName("blockConstructor");
 		this.setCreativeTab(TabEXO.tabEXO);
 		this.setStepSound(this.soundMetalFootstep);
-		this.setBlockBounds(1.0F, 1.0F, 1.0F, 1.0F, 1.5F, 1.0F);
+		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.5F, 1.0F);
 	}
 	
 	@Override
