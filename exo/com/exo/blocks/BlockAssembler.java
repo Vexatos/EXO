@@ -2,22 +2,35 @@ package com.exo.blocks;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
 import com.exo.api.ItemEXOArmourPiece;
 import com.exo.core.TabEXO;
+import com.exo.core.helper.RotationHelper;
 import com.exo.items.EXOItems;
 import com.exo.tile.TileAssembler;
 
 public final class BlockAssembler extends BlockContainer{
+	private Icon texture;
+	
 	public BlockAssembler(int id){
 		super(id, Material.iron);
 		this.setUnlocalizedName("blockAssembler");
 		this.setCreativeTab(TabEXO.tabEXO);
 		this.setStepSound(this.soundMetalFootstep);
+	}
+	
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase living, ItemStack stack){
+		if(world.getBlockTileEntity(x, y, z) != null){
+			((TileAssembler) world.getBlockTileEntity(x, y, z)).setRotation(RotationHelper.determine3DRotation(world, x, y, z, living));
+		}
 	}
 	
 	@Override
@@ -28,6 +41,16 @@ public final class BlockAssembler extends BlockContainer{
 		} else{
 			return super.onBlockActivated(world, x, y, z, player, i, f, j, k);
 		}
+	}
+	
+	@Override
+	public Icon getIcon(int side, int meta){
+		return this.texture;
+	}
+	
+	@Override
+	public void registerIcons(IconRegister register){
+		this.texture = register.registerIcon("exo:machine/assembler.png");
 	}
 	
 	@Override
