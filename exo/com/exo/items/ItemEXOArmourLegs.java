@@ -27,7 +27,7 @@ public final class ItemEXOArmourLegs extends ItemEXOArmourPiece{
 	public void registerIcons(IconRegister register){
 		this.textures = new Icon[]{
 			register.registerIcon("exo:armour/exoLeggingsFrame"),
-			register.registerIcon("exo:armour/exoLegggings")
+			register.registerIcon("exo:armour/exoLeggings")
 		};
 	}
 }

@@ -18,6 +18,7 @@ public class EXOConfig{
 		EXOSessionData.RENDER_OVERLAY = this.config.get("settings", "renderOverlay", true).getBoolean(true);
 		
 		EXOSessionData.BLOCK_ASSEMBLER_ID = this.config.getBlock("Assembler", 3000).getInt();
+		EXOSessionData.BLOCK_CONSTRUCTOR_ID = this.config.getBlock("Constructor", 3001).getInt();
 		EXOSessionData.ITEM_CORE_ID = this.config.getBlock("Core", 5000).getInt();
 		EXOSessionData.ITEM_SUIT_UNCHARGED_HELM_ID = this.config.getItem("Exosuit Helmet", 5001).getInt();
 		EXOSessionData.ITEM_SUIT_UNCHARGED_CHEST_ID = this.config.getItem("Exosuit Chest", 5002).getInt();

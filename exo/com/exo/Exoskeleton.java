@@ -84,10 +84,6 @@ public class Exoskeleton{
 		// ChestGenHooks.addItem(ChestGenHooks.DUNGEON_CHEST, new WeightedRandomChestContent());
 		LOGGER.info("Done Adding Dungeon Loot");
 		
-		LOGGER.info("Registering Block Renders");
-		EXOBlocks.INSTANCE.registerItemRenders();
-		LOGGER.info("Done Registering Block Renders");
-		
 		LOGGER.info("Done Post-Initialization");
 	}
 	

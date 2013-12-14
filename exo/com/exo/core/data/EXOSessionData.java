@@ -13,6 +13,7 @@ public final class EXOSessionData{
 	 * Item IDs
 	 */
 	public static int BLOCK_ASSEMBLER_ID = 3000;
+	public static int BLOCK_CONSTRUCTOR_ID = 3001;
 	public static int ITEM_CORE_ID = 5000;
 	public static int ITEM_SUIT_UNCHARGED_HELM_ID = 5001;
 	public static int ITEM_SUIT_UNCHARGED_CHEST_ID = 5002;
