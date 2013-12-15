@@ -3,6 +3,7 @@ package com.exo.items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import com.exo.api.EnumEXOCoreType;
 import com.exo.core.data.EXOSessionData;
 import com.exo.core.helper.EXOLocalizationHelper;
 import com.exo.core.scope.EXOMetaScope;
@@ -18,12 +19,13 @@ public enum EXOItems implements EXOMetaScope{
 	public static final Item ITEM_SUIT_UNCHARGED_LEGS = new ItemEXOArmourLegs(EXOSessionData.ITEM_SUIT_UNCHARGED_LEGS_ID);
 	public static final Item ITEM_SUIT_UNCHARGED_BOOTS = new ItemEXOArmourBoots(EXOSessionData.ITEM_SUIT_UNCHARGED_BOOTS_ID);
 	public static final Item ITEM_UPGRADE_LINK = new ItemUpgradeLink(EXOSessionData.ITEM_UPGRADELINK_ID);
-	public static final Item ITEM_CORE = new ItemCore(EXOSessionData.ITEM_CORE_ID);
+	public static final Item ITEM_CORE = new ItemCore(EXOSessionData.ITEM_CORE_ID, EnumEXOCoreType.BERZERK);
 	public static final Item ITEM_CRAFTING = new ItemCrafting(EXOSessionData.ITEM_CRAFTING_ID);
 	public static final Item ITEM_COMPONENT = new ItemComponent(EXOSessionData.ITEM_COMPONENT_ID);
+	public static final Item ITEM_TOOLBOX = new ItemToolbox(EXOSessionData.ITEM_TOOLBOX_ID);
 	
 	public void registerItems(){
-		GameRegistry.registerItem(ITEM_SUIT_UNCHARGED_HELM, "exo:" + ITEM_SUIT_UNCHARGED_HELM.getUnlocalizedName());
+		GameRegistry.registerItem(ITEM_SUIT_UNCHARGED_HELM, "exo: " + ITEM_SUIT_UNCHARGED_HELM.getUnlocalizedName());
 		GameRegistry.registerItem(ITEM_SUIT_UNCHARGED_CHEST, "exo:" + ITEM_SUIT_UNCHARGED_CHEST.getUnlocalizedName());
 		GameRegistry.registerItem(ITEM_SUIT_UNCHARGED_LEGS, "exo:" + ITEM_SUIT_UNCHARGED_LEGS.getUnlocalizedName());
 		GameRegistry.registerItem(ITEM_SUIT_UNCHARGED_BOOTS, "exo:" + ITEM_SUIT_UNCHARGED_BOOTS.getUnlocalizedName());
@@ -31,6 +33,7 @@ public enum EXOItems implements EXOMetaScope{
 		GameRegistry.registerItem(ITEM_CORE, "exo:" + ITEM_CORE.getUnlocalizedName());
 		GameRegistry.registerItem(ITEM_CRAFTING, "exo:" + ITEM_CRAFTING.getUnlocalizedName());
 		GameRegistry.registerItem(ITEM_COMPONENT, "exo:" + ITEM_COMPONENT.getUnlocalizedName());
+		GameRegistry.registerItem(ITEM_TOOLBOX, "exo:" + ITEM_TOOLBOX.getUnlocalizedName());
 	}
 	
 	public void addItemNames(){
@@ -74,5 +77,8 @@ public enum EXOItems implements EXOMetaScope{
 		LanguageRegistry.addName(STACK_COMPONENT_SHINS, EXOLocalizationHelper.translate("item.comp.shins.name"));
 		LanguageRegistry.addName(STACK_COMPONENT_SUPPORT_BAR, EXOLocalizationHelper.translate("item.comp.supportBar.name"));
 		LanguageRegistry.addName(STACK_COMPONENT_TOES, EXOLocalizationHelper.translate("item.comp.toes.name"));
+		
+		LanguageRegistry.addName(STACK_TOOLBOX_DEFAULT, EXOLocalizationHelper.translate("item.toolbox.default.name"));
+		LanguageRegistry.addName(STACK_TOOLBOX_RED, EXOLocalizationHelper.translate("item.toolbox.red.name"));
 	}
 }

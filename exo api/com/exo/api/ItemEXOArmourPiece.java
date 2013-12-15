@@ -2,6 +2,7 @@ package com.exo.api;
 
 import java.util.List;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -19,41 +20,42 @@ public abstract class ItemEXOArmourPiece extends ItemArmor implements EXOMateria
 		this.setCreativeTab(TabEXO.tabEXO);
 		this.setUnlocalizedName("itemEXOArmourPiece");
 	}
-
-	public static ItemStack getCurrentCore(ItemStack armourPiece){
-		if(armourPiece.stackTagCompound == null){
-			armourPiece.setTagCompound(new NBTTagCompound());
+	
+	public static final void setArmourCore(ItemStack armour, ItemStack core){
+		if(armour.stackTagCompound == null){
+			armour.setTagCompound(new NBTTagCompound());
 		}
 		
-		NBTTagCompound comp = armourPiece.stackTagCompound;
+		NBTTagCompound tag = armour.stackTagCompound;
+		NBTTagCompound comp = new NBTTagCompound();
+		core.writeToNBT(comp);
 		
-		if(comp.hasKey("core")){
-			NBTTagCompound core = (NBTTagCompound) comp.getTag("core");
-			return ItemStack.loadItemStackFromNBT(core);
+		tag.setTag("core", comp);
+	}
+	
+	public static final ItemStack getArmourCore(ItemStack armour){
+		if(armour.stackTagCompound == null){
+			armour.setTagCompound(new NBTTagCompound());
+		}
+		
+		NBTTagCompound tag = armour.stackTagCompound;
+		
+		if(tag.hasKey("core")){
+			NBTTagCompound comp = tag.getCompoundTag("core");
+			return ItemStack.loadItemStackFromNBT(comp);
 		} else{
 			return null;
 		}
 	}
 	
-	public static void setCurrentCore(ItemStack armourPiece, ItemStack core){
-		if(armourPiece.stackTagCompound == null){
-			armourPiece.setTagCompound(new NBTTagCompound());
-		}
-		
-		NBTTagCompound comp = armourPiece.stackTagCompound;
-		NBTTagCompound tag = new NBTTagCompound();
-		core.writeToNBT(tag);
-		comp.setTag("core", tag);
-	}
-	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool){
-		if(FMLClientHandler.instance().getClient().gameSettings.isKeyDown(FMLClientHandler.instance().getClient().gameSettings.keyBindSneak)){
-			list.add(String.format("Current Core: %s", this.getCurrentCoreStatus(stack)));
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag){
+		Minecraft mc = FMLClientHandler.instance().getClient();
+		
+		if(mc.gameSettings.isKeyDown(mc.gameSettings.keyBindSneak)){
+			if(ItemEXOArmourPiece.getArmourCore(stack) != null){
+				list.add(String.format("Core: %s", ((ItemCore) ItemEXOArmourPiece.getArmourCore(stack).getItem()).getCoreType().name()));
+			}
 		}
-	}
-	
-	public String getCurrentCoreStatus(ItemStack stack){
-		return ItemEXOArmourPiece.getCurrentCore(stack) != null ? ((ItemCore) ItemEXOArmourPiece.getCurrentCore(stack).getItem()).getCoreName(stack) : "Null";
 	}
 }

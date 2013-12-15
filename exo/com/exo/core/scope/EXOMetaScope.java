@@ -40,4 +40,7 @@ public interface EXOMetaScope{
 	public static final ItemStack STACK_COMPONENT_SHINS = new ItemStack(EXOItems.ITEM_COMPONENT, 1, 13);
 	public static final ItemStack STACK_COMPONENT_SUPPORT_BAR = new ItemStack(EXOItems.ITEM_COMPONENT, 1, 14);
 	public static final ItemStack STACK_COMPONENT_TOES = new ItemStack(EXOItems.ITEM_COMPONENT, 1, 15);
+	
+	public static final ItemStack STACK_TOOLBOX_DEFAULT = new ItemStack(EXOItems.ITEM_TOOLBOX, 1, 0);
+	public static final ItemStack STACK_TOOLBOX_RED = new ItemStack(EXOItems.ITEM_TOOLBOX, 1, 1);
 }

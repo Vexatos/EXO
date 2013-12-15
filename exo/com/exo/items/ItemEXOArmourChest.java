@@ -4,10 +4,11 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 
+import com.exo.api.EnumEXOCoreType;
 import com.exo.api.ItemEXOArmourPiece;
 
 public final class ItemEXOArmourChest extends ItemEXOArmourPiece{
-	private Icon[] textures;
+	private Icon[] ICONS;
 	
 	public ItemEXOArmourChest(int id){
 		super(id, 1);
@@ -16,18 +17,21 @@ public final class ItemEXOArmourChest extends ItemEXOArmourPiece{
 	
 	@Override
 	public Icon getIconFromDamage(int damage){
-		if(ItemEXOArmourPiece.getCurrentCore(new ItemStack(this, 1, damage)) != null){
-			return this.textures[1];
-		} else{
-			return this.textures[0];
+		Icon icon = this.ICONS[0];
+		
+		if(ItemEXOArmourPiece.getArmourCore(new ItemStack(this)) != null){
+			icon = this.ICONS[((ItemCore) ItemEXOArmourPiece.getArmourCore(new ItemStack(this)).getItem()).getCoreType().ordinal()];
 		}
+		
+		return icon;
 	}
 	
 	@Override
 	public void registerIcons(IconRegister register){
-		this.textures = new Icon[]{
-			register.registerIcon("exo:armour/exoChestplateFrame"),
-			register.registerIcon("exo:armour/exoChestplate")
-		};
+		this.ICONS = new Icon[EnumEXOCoreType.values().length];
+		
+		for(int i = 0; i < EnumEXOCoreType.values().length; i++){
+			this.ICONS[i] = register.registerIcon(EnumEXOCoreType.values()[i].getChestplatePath());
+		}
 	}
 }

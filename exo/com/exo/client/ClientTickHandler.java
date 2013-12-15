@@ -29,8 +29,6 @@ public class ClientTickHandler implements ITickHandler{
 				
 				if(inventory.armorItemInSlot(0) != null && inventory.armorItemInSlot(0).getItem() instanceof ItemEXOArmourPiece){
 					ItemEXOArmourPiece item = (ItemEXOArmourPiece) inventory.armorItemInSlot(0).getItem();
-					
-					client.fontRenderer.drawString("Current Core Status (Boots): " + item.getCurrentCoreStatus(inventory.armorItemInSlot(0)), 0, 10, 0xFF0000);
 				}
 			}
 		}

@@ -27,6 +27,7 @@ public class EXOConfig{
 		EXOSessionData.ITEM_UPGRADELINK_ID = this.config.getItem("Upgrade Link", 5005).getInt();
 		EXOSessionData.ITEM_CRAFTING_ID = this.config.getItem("Crafting Items", 5006).getInt();
 		EXOSessionData.ITEM_COMPONENT_ID = this.config.getItem("Component", 5007).getInt();
+		EXOSessionData.ITEM_TOOLBOX_ID = this.config.getItem("Toolbox", 5008).getInt();
 		
 		this.config.save();
 	}
