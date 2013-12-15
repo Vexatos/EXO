@@ -8,9 +8,7 @@ import net.minecraft.item.ItemStack;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import com.exo.api.techtree.TechTree;
 import com.exo.api.techtree.TechTreeNode;
-import com.exo.core.techtree.DefaultTechTree;
 import com.exo.items.EXOItems;
 
 import cpw.mods.fml.relauncher.Side;
@@ -24,7 +22,7 @@ public class GuiTest extends GuiScreen{
 	private int mouseX;
 	private int mouseY;
 	
-	private TechTree tree = new DefaultTechTree();
+	// private TechTree tree = new DefaultTechTree();
 	
 	@Override
 	public void keyTyped(char c, int code){
@@ -50,7 +48,7 @@ public class GuiTest extends GuiScreen{
 	private void drawTitle(){
 		int x = (this.width - this.paneWidth) / 2;
 		int y = (this.height - this.paneHeight) / 2;
-		this.fontRenderer.drawString("Tech Tree: " + this.tree.getName(), x + 15, y + 5, 0xFF0000);
+		// this.fontRenderer.drawString("Tech Tree: " + this.tree.getName(), x + 15, y + 5, 0xFF0000);
 	}
 	
 	private void drawTree(int i, int j, float f){
@@ -66,6 +64,7 @@ public class GuiTest extends GuiScreen{
 		int y;
 		int meta = 0;
 		
+		/*
 		for(TechTreeNode node : this.tree.getNodes()){
 			x = node.getPosition().getX();
 			y = node.getPosition().getY();
@@ -82,7 +81,7 @@ public class GuiTest extends GuiScreen{
 			render.renderItemIntoGUI(this.fontRenderer, this.mc.getTextureManager(), new ItemStack(EXOItems.ITEM_UPGRADE_LINK, 1, meta), x, y);
 			
 			GL11.glDisable(GL11.GL_LIGHTING);
-		}
+		}*/
 		
 		GL11.glPopMatrix();
 		GL11.glDepthFunc(GL11.GL_LEQUAL);

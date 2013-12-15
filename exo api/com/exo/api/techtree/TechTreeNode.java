@@ -1,14 +1,17 @@
 package com.exo.api.techtree;
 
-import net.minecraft.nbt.NBTTagCompound;
+import java.util.LinkedList;
+import java.util.List;
 
 import com.exo.api.lib.vector.Vector2;
+import com.google.common.collect.ImmutableList;
 
 public class TechTreeNode{
 	private final String name;
 	private final Vector2 vec;
 	private final TechTreeNode next;
 	private boolean unlocked = false;
+	private final List<TechTreeNode> children = new LinkedList<TechTreeNode>();
 	
 	public TechTreeNode(String name, Vector2 vec, TechTreeNode node){
 		this.name = name;
@@ -24,26 +27,6 @@ public class TechTreeNode{
 		return this.unlocked;
 	}
 	
-	public static TechTreeNode loadFromNBT(NBTTagCompound comp){
-		TechTreeNode node = null;
-		
-		if(comp.hasKey("name")){
-			TechTreeNode child = null;
-			if(comp.hasKey("child")){
-				child = TechTreeNode.loadFromNBT(comp.getCompoundTag("child"));
-			}
-			
-			node = new TechTreeNode(comp.getString("name"), new Vector2(comp.getInteger("x"), comp.getInteger("y")), child);
-			node.unlocked = comp.getBoolean("unlocked");
-		}
-		
-		return node;
-	}
-	
-	public TechTreeNode getNext(){
-		return this.next == null ? this : this.next;
-	}
-	
 	public String getName(){
 		return this.name;
 	}
@@ -52,8 +35,7 @@ public class TechTreeNode{
 		return this.vec;
 	}
 	
-	public TechTreeNode register(TechTree tree){
-		tree.addNode(this);
-		return this;
+	public List<TechTreeNode> getChildren(){
+		return ImmutableList.copyOf(this.children);
 	}
 }

@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import com.exo.blocks.EXOBlocks;
 import com.exo.client.ClientTickHandler;
+import com.exo.core.EXORecipes;
 import com.exo.gui.GuiHandler;
 import com.exo.items.EXOItems;
 import com.exo.server.CommonProxy;
@@ -83,6 +84,10 @@ public class Exoskeleton{
 		LOGGER.info("Adding Dungeon Loot");
 		// ChestGenHooks.addItem(ChestGenHooks.DUNGEON_CHEST, new WeightedRandomChestContent());
 		LOGGER.info("Done Adding Dungeon Loot");
+		
+		LOGGER.info("Adding Recipes");
+		EXORecipes.addRecipes();
+		LOGGER.info("Done Adding Recipes");
 		
 		LOGGER.info("Done Post-Initialization");
 	}
