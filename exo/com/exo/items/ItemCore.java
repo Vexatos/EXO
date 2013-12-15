@@ -27,8 +27,8 @@ public final class ItemCore extends Item{
 	
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player){
-		if(player.inventory.armorItemInSlot(0).getItem() instanceof ItemEXOArmourPiece){
-			ItemEXOArmourPiece.setArmourCore(player.inventory.armorItemInSlot(0), stack);
+		if(player.inventory.armorItemInSlot(3).getItem() instanceof ItemEXOArmourPiece){
+			ItemEXOArmourPiece.setArmourCore(player.inventory.armorItemInSlot(3), stack);
 		}
 		return super.onItemRightClick(stack, world, player);
 	}
