@@ -15,13 +15,7 @@ public enum AssemblerRecipeManager {
 	
 	private List<AssemblerRecipe> recipes = new LinkedList<AssemblerRecipe>();
 	
-	private AssemblerRecipeManager(){
-		this.addRecipe(new AssemblerRecipe(3, 3, new ItemStack[]{
-				new ItemStack(Item.diamond), new ItemStack(Item.diamond), new ItemStack(Item.diamond),
-				new ItemStack(Item.diamond), new ItemStack(Item.diamond), new ItemStack(Item.diamond),
-				new ItemStack(Item.diamond), new ItemStack(Item.diamond), new ItemStack(Item.diamond)
-		}, new ItemStack(EXOItems.ITEM_CORE, 1, 0), new ItemStack(EXOItems.ITEM_CORE, 1, 1)));
-	}
+	private AssemblerRecipeManager(){}
 	
 	public ItemStack findMatchingRecipe(InventoryAssembler crafting, World world){
 		for(AssemblerRecipe recipe : this.recipes){

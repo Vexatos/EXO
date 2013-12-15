@@ -17,13 +17,7 @@ public final class ItemEXOArmourLegs extends ItemEXOArmourPiece{
 	
 	@Override
 	public Icon getIconFromDamage(int damage){
-		Icon icon = this.ICONS[0];
-		
-		if(ItemEXOArmourPiece.getArmourCore(new ItemStack(this)) != null){
-			icon =  this.ICONS[((ItemCore) ItemEXOArmourPiece.getArmourCore(new ItemStack(this)).getItem()).getCoreType().ordinal()];
-		}
-		
-		return icon;
+		return ICONS[0];
 	}
 	
 	@Override

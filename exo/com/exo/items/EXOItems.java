@@ -19,7 +19,7 @@ public enum EXOItems implements EXOMetaScope{
 	public static final Item ITEM_SUIT_UNCHARGED_LEGS = new ItemEXOArmourLegs(EXOSessionData.ITEM_SUIT_UNCHARGED_LEGS_ID);
 	public static final Item ITEM_SUIT_UNCHARGED_BOOTS = new ItemEXOArmourBoots(EXOSessionData.ITEM_SUIT_UNCHARGED_BOOTS_ID);
 	public static final Item ITEM_UPGRADE_LINK = new ItemUpgradeLink(EXOSessionData.ITEM_UPGRADELINK_ID);
-	public static final Item ITEM_CORE = new ItemCore(EXOSessionData.ITEM_CORE_ID, EnumEXOCoreType.BERZERK);
+	public static final Item ITEM_CORE = new ItemCore(EXOSessionData.ITEM_CORE_ID);
 	public static final Item ITEM_CRAFTING = new ItemCrafting(EXOSessionData.ITEM_CRAFTING_ID);
 	public static final Item ITEM_COMPONENT = new ItemComponent(EXOSessionData.ITEM_COMPONENT_ID);
 	public static final Item ITEM_TOOLBOX = new ItemToolbox(EXOSessionData.ITEM_TOOLBOX_ID);
@@ -46,8 +46,8 @@ public enum EXOItems implements EXOMetaScope{
 		LanguageRegistry.addName(STACK_UPGRADE_LINK_CHARGED, EXOLocalizationHelper.translate("item.upgradelink.charged.name"));
 		
 		LanguageRegistry.addName(STACK_CORE_DEAD, EXOLocalizationHelper.translate("item.core.dead.name"));
-		LanguageRegistry.addName(STACK_CORE_CHARGED, EXOLocalizationHelper.translate("item.core.charged.name"));
-	
+		
+		
 		LanguageRegistry.addName(STACK_CRAFTING_FUSE, EXOLocalizationHelper.translate("item.crafting.fuse.name"));
 		LanguageRegistry.addName(STACK_CRAFTING_HINGE, EXOLocalizationHelper.translate("item.crafting.hinge.name"));
 		LanguageRegistry.addName(STACK_CRAFTING_INGOT_STEEL, EXOLocalizationHelper.translate("item.crafting.ingot.name"));
@@ -66,11 +66,7 @@ public enum EXOItems implements EXOMetaScope{
 		LanguageRegistry.addName(STACK_COMPONENT_CHESTPLATE_RIGHT, EXOLocalizationHelper.translate("item.comp.chest.right.name"));
 		LanguageRegistry.addName(STACK_COMPONENT_CONCUSSION_CELL, EXOLocalizationHelper.translate("item.comp.concussionCell.name"));
 		LanguageRegistry.addName(STACK_COMPONENT_CORE_CONTAINMENT, EXOLocalizationHelper.translate("item.comp.core.containment.name"));
-		LanguageRegistry.addName(STACK_COMPONENT_CORE_NODE_BERZERK, EXOLocalizationHelper.translate("item.comp.core.node.berzerk.name"));
 		LanguageRegistry.addName(STACK_COMPONENT_CORE_NODE_EMPTY, EXOLocalizationHelper.translate("item.comp.core.node.empty.name"));
-		LanguageRegistry.addName(STACK_COMPONENT_CORE_NODE_INFERNO, EXOLocalizationHelper.translate("item.comp.core.node.inferno.name"));
-		LanguageRegistry.addName(STACK_COMPONENT_CORE_NODE_RECON, EXOLocalizationHelper.translate("item.comp.core.node.recon.name"));
-		LanguageRegistry.addName(STACK_COMPONENT_CORE_NODE_REFLEX, EXOLocalizationHelper.translate("item.comp.core.node.reflex.name"));
 		LanguageRegistry.addName(STACK_COMPONENT_JOINT, EXOLocalizationHelper.translate("item.comp.joint.name"));
 		LanguageRegistry.addName(STACK_COMPONENT_POWER_CELL, EXOLocalizationHelper.translate("item.comp.powerCell.name"));
 		LanguageRegistry.addName(STACK_COMPONENT_RESISTOR, EXOLocalizationHelper.translate("item.comp.resistor.name"));
@@ -80,5 +76,13 @@ public enum EXOItems implements EXOMetaScope{
 		
 		LanguageRegistry.addName(STACK_TOOLBOX_DEFAULT, EXOLocalizationHelper.translate("item.toolbox.default.name"));
 		LanguageRegistry.addName(STACK_TOOLBOX_RED, EXOLocalizationHelper.translate("item.toolbox.red.name"));
+		
+		LanguageRegistry.addName(STACK_CORE_DEAD, EXOLocalizationHelper.translate("item.core.dead.name"));
+		LanguageRegistry.addName(STACK_CORE_CHRISTMAS, EXOLocalizationHelper.translate("item.core.christmas.name"));
+		LanguageRegistry.addName(STACK_CORE_BERZERK, EXOLocalizationHelper.translate("item.core.berzerk.name"));
+		LanguageRegistry.addName(STACK_CORE_RECON, EXOLocalizationHelper.translate("item.core.recon.name"));
+		LanguageRegistry.addName(STACK_CORE_REFLEX, EXOLocalizationHelper.translate("item.core.reflex.name"));
+		LanguageRegistry.addName(STACK_CORE_INFERNO, EXOLocalizationHelper.translate("item.core.inferno.name"));
+		LanguageRegistry.addName(STACK_CORE_FRAME, EXOLocalizationHelper.translate("item.core.frame.name"));
 	}
 }

@@ -5,15 +5,11 @@ import net.minecraft.item.ItemStack;
 import com.exo.gui.inventory.InventoryAssembler;
 
 public class AssemblerRecipe{
-	private final int recipeWidth;
-	private final int recipeHeight;
 	private final ItemStack[] items;
 	private final ItemStack core;
 	private final ItemStack output;
 	
-	public AssemblerRecipe(int width, int height, ItemStack[] items, ItemStack core, ItemStack output){
-		this.recipeWidth = width;
-		this.recipeHeight = height;
+	public AssemblerRecipe(ItemStack[] items, ItemStack core, ItemStack output){
 		this.items = items;
 		this.core = core;
 		this.output = output;

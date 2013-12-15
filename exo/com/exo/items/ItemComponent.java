@@ -15,9 +15,8 @@ public final class ItemComponent extends Item{
 	
 	public static final String[] COMPONENT_NAMES = new String[]{
 		"Chestplate", "ChestplateLeft", "ChestplateRight",
-		"ConcussionCell", "CoreContainment", "CoreNodeBerzerk",
-		"CoreNodeEmpty", "CoreNodeInferno", "CoreNodeRecon",
-		"CoreNodeReflex", "Join", "PowerCell",
+		"ConcussionCell", "CoreContainment",
+		"CoreNodeEmpty", "Joint", "PowerCell",
 		"Resistor", "Shins", "SupportBar",
 		"Toes"
 	};
@@ -51,8 +50,7 @@ public final class ItemComponent extends Item{
 		this.textures = new Icon[]{
 			register.registerIcon("exo:component/chestplate"), register.registerIcon("exo:component/chestplateLeft"), register.registerIcon("exo:component/chestplateRight"),
 			register.registerIcon("exo:component/concussionCell"), register.registerIcon("exo:component/coreContainment"), register.registerIcon("exo:component/coreNodeBerzerk"),
-			register.registerIcon("exo:component/coreNodeEmpty"), register.registerIcon("exo:component/coreNodeInferno"), register.registerIcon("exo:component/coreNodeRecon"),
-			register.registerIcon("exo:component/coreNodeReflex"), register.registerIcon("exo:component/joint"), register.registerIcon("exo:component/powerCell"),
+			register.registerIcon("exo:component/coreNodeEmpty"), register.registerIcon("exo:component/joint"), register.registerIcon("exo:component/powerCell"),
 			register.registerIcon("exo:component/resistor"), register.registerIcon("exo:component/shins"), register.registerIcon("exo:component/supportBar"),
 			register.registerIcon("exo:component/toes")
 		};

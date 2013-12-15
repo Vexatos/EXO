@@ -3,6 +3,8 @@ package com.exo.core;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import com.exo.api.AssemblerRecipe;
+import com.exo.api.AssemblerRecipeManager;
 import com.exo.items.EXOItems;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -125,5 +127,13 @@ public final class EXORecipes{
 				Character.valueOf('S'), EXOItems.STACK_CRAFTING_REINFORCED_METAL_SHEET,
 				Character.valueOf('R'), EXOItems.STACK_CRAFTING_METAL_ROD
 		});
+	}
+	
+	public static void addAssemblerRecipes(){
+		AssemblerRecipeManager.INSTANCE.addRecipe(new AssemblerRecipe(new ItemStack[]{
+				new ItemStack(Item.enderPearl, 1), new ItemStack(Item.redstone, 1), new ItemStack(Item.enderPearl, 1),
+				new ItemStack(Item.glowstone, 1), new ItemStack(Item.diamond, 1), new ItemStack(Item.glowstone),
+				new ItemStack(Item.ghastTear, 1), new ItemStack(Item.enderPearl, 1), new ItemStack(Item.ghastTear, 1)
+		}, EXOItems.STACK_COMPONENT_CORE_NODE_EMPTY, EXOItems.STACK_CORE_REFLEX));
 	}
 }
