@@ -3,6 +3,7 @@ package com.exo.tile
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.tileentity.TileEntity
 import net.minecraftforge.common.ForgeDirection
+import net.minecraft.inventory.IInventory
 
 abstract class TileMachine extends TileEntity{
   protected var ROT: ForgeDirection = ForgeDirection.WEST;

@@ -20,6 +20,7 @@ import cpw.mods.fml.relauncher.Side
 import com.exo.server.ServerTickHandler
 import com.exo.lib.EXOEvents
 import com.exo.items.Items
+import com.exo.blocks.Blocks
 
 @Mod(modid="EXO", name="Exoskeleton", version="1.0.0", modLanguage="scala")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
@@ -64,6 +65,10 @@ object Exoskeleton{
     Items.registerItems();
     LOGGER.info("Done Registering Items");
     
+    LOGGER.info("Registering Blocks");
+    Blocks.registerBlocks();
+    LOGGER.info("Done Registering Blocks");
+    
     LOGGER.info("Done Initialization");
   }
   
@@ -74,6 +79,10 @@ object Exoskeleton{
     LOGGER.info("Adding Item Names");
     Items.addItemNames();
     LOGGER.info("Done Adding Item Names");
+    
+    LOGGER.info("Adding Block Names");
+    Blocks.addBlockNames();
+    LOGGER.info("Done Adding Block Names");
     
     LOGGER.info("Done Post-Initialization");
   }

@@ -1,7 +1,6 @@
 package com.exo.client.render
 
 import org.lwjgl.opengl.GL11
-import com.exo.blocks.model.ModelConstructor
 import com.exo.tile.TileConstructor
 import cpw.mods.fml.client.FMLClientHandler
 import cpw.mods.fml.relauncher.SideOnly
@@ -21,7 +20,7 @@ object RenderConstructor{
   
   @SideOnly(Side.CLIENT)
   class TESRConstructor extends TileEntitySpecialRenderer{
-    private val model: ModelConstructor = new ModelConstructor();
+    // private val model: ModelConstructor = new ModelConstructor();
     
     override def renderTileEntityAt(tile: TileEntity, x: Double, y: Double, z: Double, scale: Float){
       BIND(TEXTURE);
@@ -30,7 +29,7 @@ object RenderConstructor{
       GL11.glTranslatef(x.asInstanceOf[Float] + 0.5F, y.asInstanceOf[Float] + 1.5F, z.asInstanceOf[Float] + 0.5F);
       GL11.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
       GL11.glRotatef(RotationHelper.getTheta(tile.asInstanceOf[TileConstructor].getRotation()), 0.0F, 1.0F, 0.0F);
-      this.model.render();
+      // this.model.render();
       GL11.glDisable(GL11.GL_LIGHTING);
       GL11.glPopMatrix();
     }
@@ -38,7 +37,7 @@ object RenderConstructor{
   
   @SideOnly(Side.CLIENT)
   class IIRConstructor extends IItemRenderer{
-    private val model: ModelConstructor = new ModelConstructor();
+    // private val model: ModelConstructor = new ModelConstructor();
     
     override def handleRenderType(stack: ItemStack, ty: ItemRenderType): Boolean={
       return true;
@@ -58,7 +57,7 @@ object RenderConstructor{
           GL11.glScalef(1.0F, 1.0F, 1.0F);
           GL11.glTranslatef(0.0F, 0.7F, 0.0F);
           GL11.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
-          this.model.render();
+          // this.model.render();
           GL11.glDisable(GL11.GL_LIGHTING);
           GL11.glPopMatrix();
           return;
@@ -70,7 +69,7 @@ object RenderConstructor{
           GL11.glScalef(1.0F, 1.0F, 1.0F);
           GL11.glTranslatef(0.0F, 0.7F, 0.0F);
           GL11.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
-          this.model.render();
+          // this.model.render();
           GL11.glDisable(GL11.GL_LIGHTING);
           GL11.glPopMatrix();
           return;
@@ -82,7 +81,7 @@ object RenderConstructor{
           GL11.glScalef(0.825F, 0.825F, 0.825F);
           GL11.glTranslatef(0.0F, 0.7F, 0.0F);
           GL11.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
-          this.model.render();
+          // this.model.render();
           GL11.glDisable(GL11.GL_LIGHTING);
           GL11.glPopMatrix();
           return;
