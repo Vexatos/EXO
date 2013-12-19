@@ -1,8 +1,8 @@
 package com.exo.client
 
-import com.exo.server.CommonProxy
+import com.exo.server.ServerProxy
 
-class ClientProxy extends CommonProxy{
+class ClientProxy extends ServerProxy{
   override def init(){
     
   }
