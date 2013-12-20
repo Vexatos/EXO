@@ -9,10 +9,12 @@ import net.minecraft.block.Block
 object Blocks{
   val BLOCK_ASSEMBLER: Block = new BlockAssembler(3000);
   val BLOCK_ASSEMBLER_DUMMY: Block = new BlockAssemblerDummy(3001);
+  val BLOCK_CONSTRUCTOR: Block = new BlockConstructor(3002);
   
   def registerBlocks(){
     this.registerBlock(BLOCK_ASSEMBLER);
     this.registerBlock(BLOCK_ASSEMBLER_DUMMY);
+    this.registerBlock(BLOCK_CONSTRUCTOR);
   }
   
   private def registerBlock(block: Block){
@@ -21,6 +23,7 @@ object Blocks{
   
   def addBlockNames(){
     this.addName(BLOCK_ASSEMBLER, "block.assembler");
+    this.addName(BLOCK_CONSTRUCTOR, "block.constructor");
   }
   
   private def addName(block: Block, tag: String){
