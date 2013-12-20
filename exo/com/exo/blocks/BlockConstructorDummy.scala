@@ -4,10 +4,13 @@ import net.minecraft.block.Block
 import net.minecraft.block.material.Material
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.world.World
+import net.minecraft.client.renderer.texture.IconRegister
+import net.minecraft.util.Icon
+import net.minecraft.util.ChatMessageComponent
 
 class BlockConstructorDummy(id: Int) extends Block(id, Material.air){
   this.setUnlocalizedName("exoBlockConstructorDummy");
-  this.setBlockBounds(0.0F, 0.0F, 1.0F, 0.0F, 1.0F, 0.0F);
+  this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.4F, 1.0F);
   
   override def onBlockActivated(world: World, x: Int, y: Int, z: Int, player: EntityPlayer, i: Int, f: Float, j: Float, k: Float): Boolean={
     if(world.getBlockTileEntity(x, y - 1, z) != null){
