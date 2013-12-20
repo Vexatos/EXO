@@ -10,7 +10,7 @@ object Blocks{
   val BLOCK_ASSEMBLER: Block = new BlockAssembler(3000);
   val BLOCK_ASSEMBLER_DUMMY: Block = new BlockAssemblerDummy(3001);
   val BLOCK_CONSTRUCTOR: Block = new BlockConstructor(3002);
-  val BLOCK_CONSTRUCTOR_DUMMY: Block = new BlockConstructor(3003);
+  val BLOCK_CONSTRUCTOR_DUMMY: Block = new BlockConstructorDummy(3003);
   
   def registerBlocks(){
     this.registerBlock(BLOCK_ASSEMBLER);
