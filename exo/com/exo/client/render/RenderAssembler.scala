@@ -17,7 +17,7 @@ import net.minecraftforge.client.IItemRenderer.ItemRendererHelper
 import net.minecraft.client.renderer.RenderHelper
 
 object RenderAssembler {
-  private val TEXTURE: ResourceLocation = new ResourceLocation("exo", "textures/block/machine/assembler.png");
+  private val TEXTURE: ResourceLocation = new ResourceLocation("exo", "textures/blocks/machines/assembler.png");
   private val BIND = (x: ResourceLocation) => {FMLClientHandler.instance().getClient().renderEngine.bindTexture(x)};
   
   @SideOnly(Side.CLIENT)
